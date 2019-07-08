@@ -15,7 +15,8 @@ class Pair:
 # '''
 class BasicHashTable:
     def __init__(self, capacity):
-        pass
+        self.bucket_array = [None for i in range(capacity)]
+        self.capacity = capacity
 
 
 # '''
