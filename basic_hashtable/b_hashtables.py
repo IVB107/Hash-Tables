@@ -27,7 +27,7 @@ class BasicHashTable:
 def hash(string):
     hash_num = 5381
     for char in string:
-        hash_num = (hash_num * 33) % ord(char)
+        hash_num = (hash_num * 33) + ord(char)
     return hash_num
 
 # '''
