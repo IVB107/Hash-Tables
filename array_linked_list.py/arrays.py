@@ -51,20 +51,24 @@ def array_insert(array, element, index):
 
 
 # Add an element to the end of the given array
-def array_append():
+def array_append(array, element):
 
     # Hint, this can be done with one line of code
     # (Without using a built in function)
-
     # Your code here
-    pass
+    array_insert(array, element, array.count)
 
 
 # Remove the first occurence of the given element from the array
 # Throw an error if the value is not found
-def array_remove():
+def array_remove(array, element):
     # Your code here
-    pass
+    removed = false
+    for i in range(array.count):
+        if removed:
+            array.elements[i-1] = array.elements[i]
+        elif array[i] == element:
+            removed = True
 
 
 # Remove the element in a given position and return it
