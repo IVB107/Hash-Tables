@@ -2,35 +2,52 @@
 
 # Do not use any of the built in array functions for this exercise
 class array:
-    def __init__(self):
+    def __init__(self, capacity):
         # Your code here
-        pass
+        self.capacity = capacity
+        self.count = 0
+        self.elements = [None] * capacity
 
 
 # Double the size of the given array
-def resize_array():
+def resize_array(array):
     # Your code here
-    pass
+    new_capacity = array.capacity * 2
+    new_elements = [None] * new_capacity
+    # Copy over the elements
+    for i in range(array.count):
+        new_elements[i] = array.elements[i]
+    
+    array.capacity = new_capacity
+    array.elements = new_elements
 
 
 # Return an element of a given array at a given index
-def array_read():
+def array_read(array, index):
     # Throw an error if array is out of the current count
+    if index >= array.count:
+        print('ERROR: Out of bounds.')
+        return None
     # Your code here
-    pass
+    return array[index]
 
 
 # Insert an element in a given array at a given index
-def array_insert():
+def array_insert(array, element, index):
     # Throw an error if array is out of the current count
-
+    if index >= array.count:
+        print('ERROR: Out of bounds.')
+        return None
     # Resize the array if the number of elements is over capacity
-
+    if array.capacity <= array.count:
+        resize_array(array)
     # Move the elements to create a space at 'index'
     # Think about where to start!
-
+    for i in range(array.count, index - 1):
+        array.elements[i] = array.elements[i-1]
     # Add the new element to the array and update the count
-    pass
+    array.elements[index] = element
+    array.count += 1
 
 
 # Add an element to the end of the given array
